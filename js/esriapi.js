@@ -60,7 +60,7 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 					}else{
 						$("#" + t.id + "-catch").prop("disabled", false)
 					}
-				})				
+				})	
 			}
 		});
     }
