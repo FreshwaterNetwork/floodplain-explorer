@@ -69,6 +69,26 @@ function ( declare, Query, QueryTask ) {
 							}
 						}
 					});	
+					// Update info text
+					$.each($(".cntrlWrap"),function(i,v){
+						var obkey = v.id.split("-").pop()
+						if (t.sliderObj[t.fe][obkey]){
+							if (t.sliderObj[t.fe][obkey].info){
+								$(v).find(".feInfoWrap").show()
+								$(v).find(".feInfoText").html(t.sliderObj[t.fe][obkey].info)
+							}else{
+								$(v).find(".feInfoWrap").hide()
+							}
+						}	
+						if (t.radioObj[t.fe][obkey]){
+							if (t.radioObj[t.fe][obkey].info){
+								$(v).find(".feInfoWrap").show()
+								$(v).find(".feInfoText").html(t.radioObj[t.fe][obkey].info)
+							}else{
+								$(v).find(".feInfoWrap").hide()
+							}	
+						}
+					});
 					// Update watershed visibilty
 					t.obj.visibleLayers = [];
 					t.obj.visibleLayers.push(t.obj.hucLayer)
@@ -124,27 +144,40 @@ function ( declare, Query, QueryTask ) {
 					t[ben] = "( " + field + " = " + val + " )";
 					t.clicks.layerDefs(t);
 				})
+				// Info icon clicks
+				$('#' + t.id + "mng-act-wrap .feInfo").click(function(c) {
+					var e = c.currentTarget;
+					$(e).hide();
+					if ( $(e).hasClass('feInfoOpen') ){
+						$(e).parent().find(".feInfoClose").show();
+						$(e).parent().parent().parent().find(".feInfoText").slideDown();
+					}
+					if ( $(e).hasClass('feInfoClose') ){
+						$(e).parent().find(".feInfoOpen").show();
+						$(e).parent().parent().parent().find(".feInfoText").slideUp();
+					}
+				});
 				// Set up range sliders
 				$('#' + t.id + 'mng-act-wrap .slider').slider({range:true, min:0, max:2400, values:[0,2400], disabled:true, 
-						change:function(event,ui){t.clicks.sliderChange(event,ui,t)},
-						slide:function(event,ui){t.clicks.sliderSlide(event,ui,t)}
-					})
+					change:function(event,ui){t.clicks.sliderChange(event,ui,t)},
+					slide:function(event,ui){t.clicks.sliderSlide(event,ui,t)}
+				})
 			},
 			sliderChange: function(e, ui, t){
+				var ben  = e.target.id.split("-").pop()
+				var us = "_";
+				if (t.sliderObj[t.fe][ben].nounsc){
+					us = "";
+				}	
+				var field = ben + us + t.obj.mngmtAction + t.obj.floodFreq;
+				if (t.sliderObj[t.fe][ben].endwp){
+					field = field + "P" 
+				}
+				if (t.sliderObj[t.fe][ben].shfld){
+					field = ben;
+				}	
 				// slider change was mouse-driven
 				if (e.originalEvent) {
-					var ben  = e.target.id.split("-").pop()
-					var us = "_";
-					if (t.sliderObj[t.fe][ben].nounsc){
-						us = "";
-					}	
-					var field = ben + us + t.obj.mngmtAction + t.obj.floodFreq;
-					if (t.sliderObj[t.fe][ben].endwp){
-						field = field + "P" 
-					}
-					if (t.sliderObj[t.fe][ben].shfld){
-						field = ben;
-					}	
 					var v0 = ui.values[0]
 					var v1 = ui.values[1]
 					t.sliderObj[t.fe][ben].values = [v0,v1];
@@ -152,23 +185,15 @@ function ( declare, Query, QueryTask ) {
 						v0 = v0/t.sliderObj[t.fe][ben].div
 						v1 = v1/t.sliderObj[t.fe][ben].div
 					}
-					t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+					if (v1 == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
+						t[ben] = "(" + field + " >= " + v0 + ")";	
+					}else{
+						t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+					}
 					t.clicks.layerDefs(t);
 				}
 				//slider change was programmatic
 				else{					
-					var ben  = e.target.id.split("-").pop()
-					var us = "_";
-					if (t.sliderObj[t.fe][ben].nounsc){
-						us = "";
-					}
-					var field = ben + us + t.obj.mngmtAction + t.obj.floodFreq;
-					if (t.sliderObj[t.fe][ben].endwp){
-						field = field + "P" 
-					}
-					if (t.sliderObj[t.fe][ben].shfld){
-						field = ben;
-					}
 					var dis = $('#' + e.target.id).slider("option", "disabled");
 					var vis = $('#' + e.target.id).is(":visible")
 					if (dis === true){
@@ -182,7 +207,11 @@ function ( declare, Query, QueryTask ) {
 								v0 = v0/t.sliderObj[t.fe][ben].div
 								v1 = v1/t.sliderObj[t.fe][ben].div
 							}
-							t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";
+							if (v1 == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
+								t[ben] = "(" + field + " >= " + v0 + ")";	
+							}else{
+								t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+							}
 						}else{
 							t[ben] = "";
 						}
@@ -205,7 +234,11 @@ function ( declare, Query, QueryTask ) {
 					}else{
 						var val = t.clicks.commaSeparateNumber(sval)
 					}	
-					$(v).html(val)
+					if (ui.values[i] == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
+						$(v).html("<b>></b> " + val)
+					}else{
+						$(v).html(val)
+					}
 				})	
 			},
 			layerDefs: function(t){
@@ -232,7 +265,6 @@ function ( declare, Query, QueryTask ) {
 						}	
 					});
 				}	
-				console.log(exp)
 				t.layerDefinitions = [];		
 				t.layerDefinitions[t.obj.hucLayer] = exp;			
 				t.dynamicLayer.setLayerDefinitions(t.layerDefinitions);

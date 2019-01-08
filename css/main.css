@@ -13,8 +13,11 @@
 .flexColumn{
 	display:flex; flex-direction:column;
 }
+.cntrlWrap{
+	border-bottom:1pt solid #e8f5fe; margin-right:10px;
+}
 .flexSlideWrap{
-	display:flex; min-height:50px; border-bottom:1pt solid #e8f5fe; align-items:end; padding-top:5px;
+	display:flex; min-height:50px; align-items:end; padding-top:5px; position:relative;
 }
 .flexSlideWrap .range-slider{
 	margin:0 !important;
@@ -66,4 +69,16 @@
 }
 .toggle-btn input[type=radio]:disabled+label{
 	cursor:not-allowed; opacity:0.5;
+}
+.feInfoWrap{
+	position:absolute; top:2px; right:3px;
+}
+.feInfoClose{
+	display:none;
+}
+.feInfo{
+	cursor:pointer;
+}
+.feInfoText{
+	color:#4f6b85; /* #4691D3 */ padding:0px 10px 8px 10px; font-size:11px; display:none;
 }

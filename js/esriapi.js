@@ -52,7 +52,7 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 							$('#' + v.id).trigger("click");
 							return false;
 						}
-					})	
+					})
 				});	
 				t.map.on("zoom-end",function(z){
 					if ( t.map.getScale() > 500000){
