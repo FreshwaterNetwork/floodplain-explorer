@@ -1698,6 +1698,24 @@ function ( 	declare ) {
 					}
 				}
 				//console.log(t.radioObj)
+				// javascript way to loop through the object and get keys and values
+				const runloop = () => {
+					for (const key of Object.keys(t.sliderObj)){
+						if (key == "h8p2"){
+							for (const key1 of Object.keys(t.sliderObj[key])){
+								console.log(key1, t.sliderObj[key][key1])
+							}
+						}
+					}
+				}
+				//runloop();
+				const x = document.getElementsByClassName("toggle-btn")
+				// x.forEach(function(vx,ix,y){
+				// 	console.log(vx,ix,y)
+				// })
+				for (const y in x){
+					console.log(y)
+				}	
 			}
 		});
     }

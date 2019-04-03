@@ -55,12 +55,56 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 					})
 				});	
 				t.map.on("zoom-end",function(z){
-					if ( t.map.getScale() > 500000){
+					if ( t.map.getScale() > 300000){
 						$("#" + t.id + "-catch").prop("disabled", true)
 					}else{
 						$("#" + t.id + "-catch").prop("disabled", false)
 					}
-				})	
+				})
+				t.sym1  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([88,116,215,1]), 2), new Color([88,116,215]);	
+				t.map.on("click",function(c){
+					if (t.obj.hucLayer == 2){
+						var featureLayer = new esri.layers.FeatureLayer(t.url + '/' + t.obj.hucLayer,{
+				          mode: esri.layers.FeatureLayer.MODE_ONDEMAND,
+				          outFields: ["*"],
+				          opacity: 0.5
+				        });
+				        featureLayer.setDefinitionExpression(t.definitionExpression);
+        				t.map.addLayer(featureLayer);
+					}else{	
+						var q = new Query();
+						var qt = new QueryTask(t.url + '/' + t.obj.hucLayer);
+						q.geometry = c.mapPoint;
+						q.outFields = ["NAME","AreaKM2","KM2_p2","KM2_r2","KM2_rr2","ACCp_p2","DINp_p2","popnow2","P2_2050_2"];
+						q.where = t.definitionExpression;
+						q.returnGeometry = true;
+						qt.execute(q, function(e){
+							if (e.features[0]){
+								t.map.graphics.clear();
+								t.atts = e.features[0].attributes
+								e.features[0].setSymbol(t.sym1);
+								t.map.graphics.add(e.features[0]);
+								$.each($("#popupAttWrap input"),function(i,v){
+									var commaVal = t.atts[v.id];
+									if (!isNaN(commaVal)){
+										commaVal = t.clicks.commaSeparateNumber(t.atts[v.id].toFixed(2))
+									}
+									$(v).val(commaVal)
+								})
+								$("#" + t.descID).show();
+							}else{
+								t.esriapi.clearGraphics(t);
+							}
+						});
+					}				
+				})
+				$("#hideDesc").click(function(c){
+					t.esriapi.clearGraphics(t);
+				})
+			},
+			clearGraphics: function(t){
+				$('#' + t.descID).hide();
+				t.map.graphics.clear();
 			}
 		});
     }

@@ -9,6 +9,7 @@ function ( declare, Query, QueryTask ) {
 				var clickCnt = 0;
 				// Flood frequency, HUC, and Management Action clicks
 				$('#' + t.id + 'top-controls input').on('click',function(c){
+					t.esriapi.clearGraphics(t);
 					// Find checked inputs and record values
 					$('#' + t.id + 'top-controls input').each(function(i,v){
 						if (v.checked){
@@ -24,6 +25,7 @@ function ( declare, Query, QueryTask ) {
 					// Update range slider min and max values 
 					var slen = $('#' + t.id + 'mng-act-wrap .slider').length;
 					t.ord = ""
+					$("#" + t.id + "CPI-head").show();
 					$.each($('#' + t.id + 'mng-act-wrap .slider'),function(i,v){
 						if (slen == i + 1){
 							t.ord = "last";
@@ -50,6 +52,9 @@ function ( declare, Query, QueryTask ) {
 									$("#" + v.id).parent().parent().parent().parent().hide();
 									var options = $("#" + v.id).slider( 'option' );
 									$("#" + v.id).slider( 'option', 'values', [ options.min, options.max ] );
+									if (v1 == "CPI"){
+										$("#" + t.id + "CPI-head").hide();
+									}
 								}	
 							}
 						})
@@ -91,7 +96,9 @@ function ( declare, Query, QueryTask ) {
 					});
 					// Update watershed visibilty
 					t.obj.visibleLayers = [];
-					t.obj.visibleLayers.push(t.obj.hucLayer)
+					if (t.obj.hucLayer != 2){
+						t.obj.visibleLayers.push(t.obj.hucLayer)
+					}	
 					t.dynamicLayer.setVisibleLayers(t.obj.visibleLayers);
 				})
 				// Checkboxes for sliders
@@ -157,7 +164,7 @@ function ( declare, Query, QueryTask ) {
 						$(e).parent().parent().parent().find(".feInfoText").slideUp();
 					}
 				});
-				// Set up range sliders
+				// Set up range slider
 				$('#' + t.id + 'mng-act-wrap .slider').slider({range:true, min:0, max:2400, values:[0,2400], disabled:true, 
 					change:function(event,ui){t.clicks.sliderChange(event,ui,t)},
 					slide:function(event,ui){t.clicks.sliderSlide(event,ui,t)}
@@ -265,6 +272,7 @@ function ( declare, Query, QueryTask ) {
 						}	
 					});
 				}	
+				t.definitionExpression = exp;
 				t.layerDefinitions = [];		
 				t.layerDefinitions[t.obj.hucLayer] = exp;			
 				t.dynamicLayer.setLayerDefinitions(t.layerDefinitions);
