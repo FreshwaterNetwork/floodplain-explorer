@@ -149,6 +149,9 @@ function ( declare, Query, QueryTask ) {
 					}
 					var val = c.target.value;
 					t[ben] = "( " + field + " = " + val + " )";
+					if (val == 1 && ben == "TNC"){
+						t[ben] = "( " + field + " > 0 )";
+					}
 					t.clicks.layerDefs(t);
 				})
 				// Info icon clicks
