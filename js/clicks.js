@@ -96,9 +96,7 @@ function ( declare, Query, QueryTask ) {
 					});
 					// Update watershed visibilty
 					t.obj.visibleLayers = [];
-					if (t.obj.hucLayer != 2){
-						t.obj.visibleLayers.push(t.obj.hucLayer)
-					}	
+					t.obj.visibleLayers.push(t.obj.hucLayer)
 					t.dynamicLayer.setVisibleLayers(t.obj.visibleLayers);
 				})
 				// Checkboxes for sliders

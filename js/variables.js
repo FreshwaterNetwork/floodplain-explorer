@@ -1260,8 +1260,7 @@ function ( 	declare ) {
 							info:"SSP5 = Strong investment in climate adaptation, albeit with continued worldwide fossil fuel exploitation and global adoption of energy- and resource-intensive lifestyles"
 						}
 					}
-				}
-				//console.log(t.sliderObj)				
+				}			
 				// object for radio groups
 				t.radioObj = {
 					h8p1:{
@@ -1697,25 +1696,24 @@ function ( 	declare ) {
 						}
 					}
 				}
-				//console.log(t.radioObj)
 				// javascript way to loop through the object and get keys and values
-				const runloop = () => {
-					for (const key of Object.keys(t.sliderObj)){
-						if (key == "h8p2"){
-							for (const key1 of Object.keys(t.sliderObj[key])){
-								console.log(key1, t.sliderObj[key][key1])
-							}
-						}
-					}
-				}
+				// const runloop = () => {
+				// 	for (const key of Object.keys(t.sliderObj)){
+				// 		if (key == "h8p2"){
+				// 			for (const key1 of Object.keys(t.sliderObj[key])){
+				// 				console.log(key1, t.sliderObj[key][key1])
+				// 			}
+				// 		}
+				// 	}
+				// }
 				//runloop();
-				const x = document.getElementsByClassName("toggle-btn")
+				//const x = document.getElementsByClassName("toggle-btn")
 				// x.forEach(function(vx,ix,y){
 				// 	console.log(vx,ix,y)
 				// })
-				for (const y in x){
-					console.log(y)
-				}	
+				//for (const y in x){
+				//	console.log(y)
+				//}	
 			}
 		});
     }

@@ -63,22 +63,24 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 				})
 				t.sym1  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([88,116,215,1]), 2), new Color([88,116,215]);	
 				t.map.on("click",function(c){
-					if (t.obj.hucLayer == 2){
-						var featureLayer = new esri.layers.FeatureLayer(t.url + '/' + t.obj.hucLayer,{
-				          mode: esri.layers.FeatureLayer.MODE_ONDEMAND,
-				          outFields: ["*"],
-				          opacity: 0.5
-				        });
-				        featureLayer.setDefinitionExpression(t.definitionExpression);
-        				t.map.addLayer(featureLayer);
-					}else{	
+					//if (t.obj.hucLayer == 2){
+						// var featureLayer = new esri.layers.FeatureLayer(t.url + '/' + t.obj.hucLayer,{
+				  //         mode: esri.layers.FeatureLayer.MODE_ONDEMAND,
+				  //         outFields: ["*"],
+				  //         opacity: 0.5
+				  //       });
+				  //       featureLayer.setDefinitionExpression(t.definitionExpression);
+      //   				t.map.addLayer(featureLayer);
+					//}else{	
 						var q = new Query();
 						var qt = new QueryTask(t.url + '/' + t.obj.hucLayer);
 						q.geometry = c.mapPoint;
 						q.outFields = ["NAME","AreaKM2","KM2_p2","KM2_r2","KM2_rr2","ACCp_p2","DINp_p2","popnow2","P2_2050_2"];
-						q.where = t.definitionExpression;
+						//q.where = t.definitionExpression;
 						q.returnGeometry = true;
+						console.log(q)
 						qt.execute(q, function(e){
+							console.log(e)
 							if (e.features[0]){
 								t.map.graphics.clear();
 								t.atts = e.features[0].attributes
@@ -95,8 +97,10 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 							}else{
 								t.esriapi.clearGraphics(t);
 							}
+						}, function(er){
+							console.log(er);
 						});
-					}				
+					//}				
 				})
 				$("#hideDesc").click(function(c){
 					t.esriapi.clearGraphics(t);
