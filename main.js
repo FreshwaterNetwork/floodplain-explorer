@@ -21,6 +21,7 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			this.obj = dojo.eval("[" + obj + "]")[0];	
 			this.url = "https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/FloodplainExplorer/MapServer";
 			this.layerDefs = [];
+			$("#sidebar-help-area").css("display","none");
 		},
 		// Called after initialize at plugin startup (why the tests for undefined). Also called after deactivate when user closes app by clicking X. 
 		hibernate: function () {

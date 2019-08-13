@@ -27,15 +27,15 @@ function ( 	declare ) {
 					h8p1:{
 						KM2:{
 							values:[], vis:true, min:0, max:350, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[], vis:true, min:0, max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[], vis:true, min:0, max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							values:[], vis:true, min:0, max:100, endwp:true,
@@ -73,15 +73,15 @@ function ( 	declare ) {
 					h8p2:{
 						KM2:{
 							values:[], vis:true, min:0, max:350, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						},
 						ACCp:{
 							values:[], vis:true, min:0, max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[], vis:true, min:0, max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -118,15 +118,15 @@ function ( 	declare ) {
 					h8p3:{
 						KM2:{
 							values:[], vis:true, min:0,	max:350, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[], vis:true, min:0, max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[], vis:true, min:0, max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -162,13 +162,13 @@ function ( 	declare ) {
 					// huc 8 + restoration + 1 in 5 year flood
 					h8r1:{
 						KM2:{values:[],vis:true,min:0,max:250, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -207,15 +207,15 @@ function ( 	declare ) {
 					h8r2:{
 						KM2:{
 							values:[],vis:true,min:0,max:850, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -253,15 +253,15 @@ function ( 	declare ) {
 					h8r3:{
 						KM2:{
 							values:[],vis:true,min:0,max:850, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -299,15 +299,15 @@ function ( 	declare ) {
 					h8rr1:{
 						KM2:{
 							values:[],vis:true,min:0,max:200, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -346,15 +346,15 @@ function ( 	declare ) {
 					h8rr2:{
 						KM2:{
 							values:[],vis:true,min:0,max:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -392,15 +392,15 @@ function ( 	declare ) {
 					h8rr3:{
 						KM2:{
 							values:[],vis:true,min:0,max:20, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -438,15 +438,15 @@ function ( 	declare ) {
 					h12p1:{
 						KM2:{
 							values:[],vis:true,min:0,max:10, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -484,15 +484,15 @@ function ( 	declare ) {
 					h12p2:{
 						KM2:{
 							values:[],vis:true,min:0,max:10, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -529,15 +529,15 @@ function ( 	declare ) {
 					h12p3:{
 						KM2:{
 							values:[],vis:true,min:0,max:10, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -574,15 +574,15 @@ function ( 	declare ) {
 					h12r1:{
 						KM2:{
 							values:[],vis:true,min:0,max:10, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -621,15 +621,15 @@ function ( 	declare ) {
 					h12r2:{
 						KM2:{
 							values:[],vis:true,min:0,max:25, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -667,15 +667,15 @@ function ( 	declare ) {
 					h12r3:{
 						KM2:{
 							values:[],vis:true,min:0,max:50, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -713,15 +713,15 @@ function ( 	declare ) {
 					h12rr1:{
 						KM2:{
 							values:[],vis:true,min:0,max:25, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -760,15 +760,15 @@ function ( 	declare ) {
 					h12rr2:{
 						KM2:{
 							values:[],vis:true,min:0,max:25, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -806,15 +806,15 @@ function ( 	declare ) {
 					h12rr3:{
 						KM2:{
 							values:[],vis:true,min:0,max:10,div:10, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -852,15 +852,15 @@ function ( 	declare ) {
 					catchp1:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -898,15 +898,15 @@ function ( 	declare ) {
 					catchp2:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -943,14 +943,15 @@ function ( 	declare ) {
 					catchp3:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in natural land cover that is not currently in protected status"
+							info:"<b>Available Area</b><br>Area of floodplain in natural land cover that is not currently in protected status"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						DINp:{
-							values:[],vis:true,min:0,max:100,info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
+							values:[],vis:true,min:0,max:100,
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For protection priorities, identify catchments <i>lower</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -987,15 +988,15 @@ function ( 	declare ) {
 					catchr1:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -1034,15 +1035,15 @@ function ( 	declare ) {
 					catchr2:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -1080,14 +1081,15 @@ function ( 	declare ) {
 					catchr3:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						DINp:{
-							values:[],vis:true,min:0,max:100,info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							values:[],vis:true,min:0,max:100,
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -1125,15 +1127,15 @@ function ( 	declare ) {
 					catchrr1:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							values:[],vis:true,min:0,max:100,endwp:true,
@@ -1172,15 +1174,15 @@ function ( 	declare ) {
 					catchrr2:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -1218,15 +1220,15 @@ function ( 	declare ) {
 					catchrr3:{
 						KM2:{
 							values:[],vis:true,min:10,max:100,div:100, gtmax:true,
-							info:"Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
+							info:"<b>Available Area</b><br>Area of floodplain in ag or pasture land that could potentially be restored, though a levee removal would be required to restore flooding"
 						}, 
 						ACCp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
+							info:"<b>Accumulated yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient export at the outflow (kg/yr of N & P accumulated from upstream, divided by km<sup>2</sup> of upstream area). For restoration priorities, identify catchments <q>higher</q> in this metric."
 						}, 
 						DINp:{
 							values:[],vis:true,min:0,max:100,
-							info:"A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
+							info:"<b>Delivered incremental yield of N & P</b><br>A value of <q>25%</q> means 25% of catchments have lower nutrient loads ultimately making it to the Gulf (kg/yr of N & P from within a given watershed, divided by its area in km<sup>2</sup>). For restoration priorities, identify catchments <i>higher</i> in this metric."
 						}, 
 						GDDs:{
 							vis:false
@@ -1265,10 +1267,12 @@ function ( 	declare ) {
 				t.radioObj = {
 					h8p1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1281,10 +1285,12 @@ function ( 	declare ) {
 					},
 					h8p2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1297,10 +1303,12 @@ function ( 	declare ) {
 					},
 					h8p3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1313,10 +1321,12 @@ function ( 	declare ) {
 					},
 					h8r1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1329,10 +1339,12 @@ function ( 	declare ) {
 					},
 					h8r2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1345,10 +1357,12 @@ function ( 	declare ) {
 					},
 					h8r3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1361,10 +1375,12 @@ function ( 	declare ) {
 					},
 					h8rr1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1377,10 +1393,12 @@ function ( 	declare ) {
 					},
 					h8rr2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1393,10 +1411,12 @@ function ( 	declare ) {
 					},
 					h8rr3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1409,10 +1429,12 @@ function ( 	declare ) {
 					},
 					h12p1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1425,10 +1447,12 @@ function ( 	declare ) {
 					},
 					h12p2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1441,10 +1465,12 @@ function ( 	declare ) {
 					},
 					h12p3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1457,10 +1483,12 @@ function ( 	declare ) {
 					},
 					h12r1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1473,10 +1501,12 @@ function ( 	declare ) {
 					},
 					h12r2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1489,10 +1519,12 @@ function ( 	declare ) {
 					},
 					h12r3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1505,10 +1537,12 @@ function ( 	declare ) {
 					},
 					h12rr1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1521,10 +1555,12 @@ function ( 	declare ) {
 					},
 					h12rr2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1537,10 +1573,12 @@ function ( 	declare ) {
 					},
 					h12rr3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1553,10 +1591,12 @@ function ( 	declare ) {
 					},
 					catchp1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1569,10 +1609,12 @@ function ( 	declare ) {
 					},
 					catchp2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1585,10 +1627,12 @@ function ( 	declare ) {
 					},
 					catchp3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1601,10 +1645,12 @@ function ( 	declare ) {
 					},
 					catchr1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1617,10 +1663,12 @@ function ( 	declare ) {
 					},
 					catchr2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1633,10 +1681,12 @@ function ( 	declare ) {
 					},
 					catchr3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1649,10 +1699,12 @@ function ( 	declare ) {
 					},
 					catchrr1:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1665,10 +1717,12 @@ function ( 	declare ) {
 					},
 					catchrr2:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,
@@ -1681,10 +1735,12 @@ function ( 	declare ) {
 					},
 					catchrr3:{
 						inIBA:{
-							vis:true,cbid:"rb_cb1"
+							vis:true,cbid:"rb_cb1",
+							info:"Missing description for this filter"
 						}, 
 						TNC:{
-							vis:true,cbid:"rb_cb2"
+							vis:true,cbid:"rb_cb2",
+							info:"Missing description for this filter"
 						}, 
 						FWScrit:{
 							vis:true,cbid:"rb_cb3",shfld:true,

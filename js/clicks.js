@@ -75,7 +75,7 @@ function ( declare, Query, QueryTask ) {
 						}
 					});	
 					// Update info text
-					$.each($(".cntrlWrap"),function(i,v){
+					$.each($(".cntrlWrap"),function(i,v){	
 						var obkey = v.id.split("-").pop()
 						if (t.sliderObj[t.fe][obkey]){
 							if (t.sliderObj[t.fe][obkey].info){
@@ -155,20 +155,68 @@ function ( declare, Query, QueryTask ) {
 				// Info icon clicks
 				$('#' + t.id + "mng-act-wrap .feInfo").click(function(c) {
 					var e = c.currentTarget;
-					$(e).hide();
+					$(".feInfoTextWrap").hide();
+					$(".feInfoWrap").show();
 					if ( $(e).hasClass('feInfoOpen') ){
-						$(e).parent().find(".feInfoClose").show();
-						$(e).parent().parent().parent().find(".feInfoText").slideDown();
+						$(e).parent().parent().find(".feInfoTextWrap").show();
 					}
 					if ( $(e).hasClass('feInfoClose') ){
-						$(e).parent().find(".feInfoOpen").show();
-						$(e).parent().parent().parent().find(".feInfoText").slideUp();
+						$(e).parent().parent().find(".feInfoWrap").show();
 					}
+					$(e).parent().hide();
 				});
 				// Set up range slider
 				$('#' + t.id + 'mng-act-wrap .slider').slider({range:true, min:0, max:2400, values:[0,2400], disabled:true, 
 					change:function(event,ui){t.clicks.sliderChange(event,ui,t)},
 					slide:function(event,ui){t.clicks.sliderSlide(event,ui,t)}
+				})
+				// filter section chevron clicks
+				$('#' + t.id + 'mng-act-wrap .chev-oc').click(function(c){
+					if ( $(c.currentTarget).hasClass('chev-o') ){
+						$(c.currentTarget).parent().find('.chev-o').hide();
+						$(c.currentTarget).parent().find('.chev-c').css("display","inline-block");
+						$(c.currentTarget).parent().next().slideUp();
+					} 
+					if ( $(c.currentTarget).hasClass('chev-c') ){
+						$(c.currentTarget).parent().find('.chev-c').hide();
+						$(c.currentTarget).parent().find('.chev-o').css("display","inline-block");
+						$(c.currentTarget).parent().next().slideDown();
+					}
+				})
+				// reset filters click
+				$(`#${t.id}resetFilters`).click(function(c){
+					// reset all slider values in t.sliderObj to empty arrays
+					$.each(t.sliderObj,function(i,v){
+						$.each(v,function(i1,v1){
+							if (v1.values){
+								v1.values = [];
+							}
+						})
+					})
+					// reclick first checked item in top menu - this resets the slider values
+					$.each($('#' + t.id + 'top-controls input'),function(i,v){
+						if (v.checked){
+							$('#' + v.id).trigger("click");
+							return false;
+						}
+					})
+					// uncheck slider checkboxes
+					$('#' + t.id + 'umr-wrap .-slCb').each(function(i,v){
+						if (v.checked){
+							$(v).trigger('click');
+						}
+					})
+					// set radio buttons to first input
+					$('.umr-radio-indent').each(function(i,v){
+						var ipt = $(v).find("input")[0];
+						$(ipt).prop("checked",true);
+					})
+					// uncheck radio checkboxes
+					$(`#${t.id}umr-wrap .rb_cb`).each(function(i,v){
+						if (v.checked){
+							$(v).trigger('click');
+						}
+					})
 				})
 			},
 			sliderChange: function(e, ui, t){

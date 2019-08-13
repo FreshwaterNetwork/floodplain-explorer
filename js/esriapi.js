@@ -57,8 +57,10 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 				t.map.on("zoom-end",function(z){
 					if ( t.map.getScale() > 125000){
 						$("#" + t.id + "-catch").prop("disabled", true)
+						$(`#${t.id}catch-text`).show();
 					}else{
 						$("#" + t.id + "-catch").prop("disabled", false)
+						$(`#${t.id}catch-text`).hide();
 					}
 				})
 				t.sym1  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([88,116,215,1]), 2), new Color([88,116,215]);	
