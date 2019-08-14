@@ -118,6 +118,7 @@ function ( declare, Query, QueryTask ) {
 						t[ben] = "";
 						t.clicks.layerDefs(t);
 					}	
+					t.clicks.cbChecker(t);	
 				})
 				// Checkboxes for radio buttons
 				$('#' + t.id + 'umr-wrap .rb_cb').on('click',function(c){
@@ -136,7 +137,8 @@ function ( declare, Query, QueryTask ) {
 						$.each($('#' + c.target.id).parent().parent().next().find('input'),function(i,v){
 							$(v).attr('disabled', true)		
 						})
-					}	
+					}
+					t.clicks.cbChecker(t);	
 				});	
 				// Radio button clicks
 				$('.umr-radio-indent input').on('click',function(c){
@@ -218,6 +220,32 @@ function ( declare, Query, QueryTask ) {
 						}
 					})
 				})
+				// save and share button
+				$(`#${t.id}saveAndShare`).click(function(c){
+					$(`#map-utils-control a`).each(function(i,v){
+						if ($(v).html() == "Save &amp; Share"){
+							v.click();
+						}
+					});
+				})	
+			},
+			cbChecker: function(t){
+				let n = 0;
+				$('#' + t.id + 'umr-wrap .rb_cb').each(function(i,v){
+					if (v.checked){
+						n = n + 1;
+					}
+				})
+				$(`#${t.id}umr-wrap .-slCb`).each(function(i,v){
+					if (v.checked){
+						n = n + 1;
+					}
+				})
+				if (n == 0){
+					$(`#${t.id}saveAndShare`).hide();
+				}else{
+					$(`#${t.id}saveAndShare`).show();
+				}
 			},
 			sliderChange: function(e, ui, t){
 				var ben  = e.target.id.split("-").pop()

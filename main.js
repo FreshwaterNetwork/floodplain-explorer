@@ -32,7 +32,7 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 		},
 		// Called after hibernate at app startup. Calls the render function which builds the plugins elements and functions.   
 		activate: function (showHelpOnStart) {
-			
+			$(`#map-utils-control`).hide();
 			// console.log(showHelpOnStart)
 			if (this.rendered == false) {
 				this.rendered = true;							
@@ -53,9 +53,10 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			// remove this conditional statement when minimize is added
 			if ( $('#' + this.id ).is(":visible") ){
 				// Get slider ids and values when values do not equal min or max
+				this.obj.slIdsVals = [];
 				$.each($('#' + this.id + 'mng-act-wrap .slider'),lang.hitch(this,function(i,v){
 					var idArray = v.id.split('-');
-					var id = "-" + idArray[1] + "-" + idArray[2];
+					var id = "-" + idArray[1];
 					var min = $('#' + v.id).slider("option", "min");
 					var max = $('#' + v.id).slider("option", "max");
 					var values = $('#' + v.id).slider("option", "values");
@@ -64,13 +65,16 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 					}
 				}));	
 				// Git ids of checked checkboxes above sliders
+				this.obj.slCbIds = [];
 				$.each( $('#' + this.id + 'umr-wrap .-slCb'),lang.hitch(this,function(i,v){
 					if (v.checked == true){
 						var id = "-" + v.id.split('-').pop();
 						this.obj.slCbIds.push(id)
 					}
+					Array.from(new Set(this.obj.slCbIds));
 				}))
 				// Get ids of checked radio buttons
+				this.obj.rbIds = [];
 				$.each( $('#' + this.id + ' .umr-radio-indent input'),lang.hitch(this,function(i,v){
 					if (v.checked == true){
 						var id = "-" + v.id.split('-').pop();
@@ -78,9 +82,10 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 					}
 				}));	
 				// Get ids of checked checkboxes above radio buttons
+				this.obj.rbCbIds = [];
 				$.each( $('#' + this.id + 'umr-wrap .rb_cb'),lang.hitch(this,function(i,v){
 					if (v.checked == true){
-						var id = "-" + v.id.split('-').pop();
+						var id = v.id.split('0').pop();
 						this.obj.rbCbIds.push(id)
 					}
 				}));	

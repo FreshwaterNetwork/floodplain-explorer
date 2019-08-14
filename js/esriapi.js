@@ -17,6 +17,19 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 					if (t.obj.stateSet == "no"){
 						t.map.setExtent(t.dynamicLayer.fullExtent.expand(0.6), true)
 					}
+					// set initial top control checks
+					$.each($('#' + t.id + 'top-controls input'),function(i,v){
+						if (t.obj[v.name] == v.value){
+							$('#' + v.id).prop('checked', true);	
+						}	
+					});
+					// reclick first checked item
+					$.each($('#' + t.id + 'top-controls input'),function(i,v){
+						if (v.checked){
+							$('#' + v.id).trigger("click");
+							return false;
+						}
+					})
 					// Save and Share Handler					
 					if (t.obj.stateSet == "yes"){
 						// set slider values
@@ -40,19 +53,6 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 						t.map.setExtent(extent, true);
 						t.obj.stateSet = "no";
 					}	
-					// set initial top control checks
-					$.each($('#' + t.id + 'top-controls input'),function(i,v){
-						if (t.obj[v.name] == v.value){
-							$('#' + v.id).prop('checked', true);	
-						}	
-					});
-					// reclick first checked item
-					$.each($('#' + t.id + 'top-controls input'),function(i,v){
-						if (v.checked){
-							$('#' + v.id).trigger("click");
-							return false;
-						}
-					})
 				});	
 				t.map.on("zoom-end",function(z){
 					if ( t.map.getScale() > 125000){
@@ -76,16 +76,13 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 					//}else{	
 						var q = new Query();
 						var qt = new QueryTask(t.url + '/' + t.obj.hucLayer);
-						console.log(qt)
 						q.geometry = c.mapPoint;
 						q.outFields = ["NAME","AreaKM2","KM2_p2","KM2_r2","KM2_rr2","ACCp_p2","DINp_p2","popnow2","P2_2050_2"];
 						if (t.obj.hucLayer == 2){
 							q.outFields = ["AreaKM2","KM2_p2","KM2_r2","KM2_rr2","ACCp_p2","DINp_p2","popnow2","P2_2050_2"];
 						}
 						q.returnGeometry = true;
-						console.log(q)
 						qt.execute(q, function(e){
-							console.log(e)
 							if (e.features[0]){
 								t.map.graphics.clear();
 								t.atts = e.features[0].attributes
