@@ -79,7 +79,11 @@ function ( declare, Query, QueryTask ) {
 						var obkey = v.id.split("-").pop()
 						if (t.sliderObj[t.fe][obkey]){
 							if (t.sliderObj[t.fe][obkey].info){
-								$(v).find(".feInfoWrap").show()
+								if ( $(v).find(".feInfoTextWrap").is(":visible") ){
+									$(v).find(".feInfoWrap").hide();
+								}else{
+									$(v).find(".feInfoWrap").show()
+								}
 								$(v).find(".feInfoText").html(t.sliderObj[t.fe][obkey].info)
 							}else{
 								$(v).find(".feInfoWrap").hide()
