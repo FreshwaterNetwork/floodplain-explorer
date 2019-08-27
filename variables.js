@@ -1937,9 +1937,7 @@ function ( 	declare ) {
 			},
 			modifications: function(t){
 				// Wrap header with div
-				$(`h4:contains("View Floodplains By Watershed")`).wrap(`
-					<div id="${t.id}fp-wrap" style="position:relative;"></div>
-				`)
+				$(`h4:contains("View Floodplains By Watershed")`).wrap('<div id="' + t.id + 'fp-wrap" style="position:relative;"/>')
 				// Add zoom to activate text above Catchments
 				$(`#${t.id}fp-wrap`).prepend(`
 					<div id="${t.id}catch-text" class="catch-text">Zoom in to Activate</div>
