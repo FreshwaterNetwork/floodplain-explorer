@@ -34,7 +34,6 @@ function ( 	declare ) {
 						},
 						tb2:{
 							header:"View Floodplains By Watershed",
-							headerWrap:"<div id='catch-text' class='catch-text'>Zoom in to Activate</div>",
 							name:"huc",
 							btns:{
 								b1:{
