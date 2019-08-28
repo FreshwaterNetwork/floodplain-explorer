@@ -5,6 +5,86 @@ function ( declare, Query, QueryTask ) {
         "use strict";
 
         return declare(null, {
+        	buildElements: function(t){
+        		// create intro paragraph and toggle button controls from object
+        		$(`#${t.id}introP`).html(t.topObj["introP"]);
+        		let tbnum = 0;
+        		$.each(t.topObj["toggleBtns"],function(k,v){
+        			tbnum = tbnum + 1;
+        			$(`#${t.id}top-controls`).append(`
+        				<h4>${v.header}</h4>
+        				<div id="${t.id}tb-${tbnum}" class="toggle-btn"></div>
+        			`);
+        			$.each(v.btns,function(k1,v1){
+        				$(`#${t.id}tb-${tbnum}`).append(`
+        					<input type="radio" id="${t.id}${v1.id}" name="${v.name}" value="${v1.value}"/>
+							<label for="${t.id}${v1.id}">${v1.label}</label>
+						`);	
+        			})
+        		})
+
+        		// create filter controls from object
+        		let num = 0;
+        		let num1 = 0;
+        		$.each(t.filterObj,function(i,v){
+        			num = num + 1;
+        			$(`#${t.id}mng-act-wrap`).append(`
+        				<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>${v.header}</h4>
+        				<div class="oc-wrap" id="${t.id}oc-wrap${num}"></div>
+        			`);
+        			$.each(v.controls,function(i1,v1){
+        				num1 = num1 + 1;
+        				if (v1.type == "slider"){
+        					$(`#${t.id}oc-wrap${num}`).append(`
+        						<div class="cntrlWrap" id="wrap-${v1.field}">
+									<div class="flexSlideWrap">
+										<div class="flex1">
+											<label class="form-component" for="${t.id}-slCb${num1}">
+												<input type="checkbox" class="-slCb" id="${t.id}-slCb${num1}" name="-slCb${num1}"><span class="check"></span>
+												<span class="form-text under">${v1.label}</span>
+											</label>
+										</div>
+										<div class="flex1a">
+											<span class="umr-slider-label label-off"><span class="rnum label-off">x</span> to <span class="rnum label-off">y</span> ${v1.unit}</span>
+											<div class="slider-container range-slider" style="width:170px;">
+												<div id="${t.id}-${v1.field}" class="slider"></div>
+											</div>
+										</div>
+										<div class="feInfoWrap"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
+										<div class="feInfoTextWrap"><span class="feInfoText"></span><i class="fa fa-close feInfo feInfoClose"></i></div>						
+									</div>	
+								</div>
+        					`);
+        				}
+        				if (v1.type == "radio"){
+        					$(`#${t.id}oc-wrap${num}`).append(`
+        						<div class="cntrlWrap" id="${t.id}wrap-${v1.field}">
+									<div class="mng-act-toggle flexSlideWrap">
+										<div class="flex1">
+											<label class="form-component" for="${t.id}rb_cb${num1}">
+												<input type="checkbox" class="rb_cb" id="${t.id}rb_cb${num1}" name="rb_cb${num1}"><span class="check"></span>
+												<span class="form-text under">${v1.label}</span>
+											</label>
+										</div>	
+										<div class="umr-radio-indent flex1">
+											<label class="form-component" for="${t.id}-rb${num1}a">
+												<input checked type="radio" id="${t.id}-rb${num1}a" name="${v1.field}" value="1" disabled>
+												<span class="check"></span><span class="form-text">Present</span>
+											</label>
+											<label class="form-component" for="${t.id}-rb${num1}b">
+												<input type="radio" id="${t.id}-rb${num1}b" name="${v1.field}" value="0" disabled>
+												<span class="check"></span><span class="form-text">Absent</span>
+											</label>
+										</div>	
+										<div class="feInfoWrap"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
+										<div class="feInfoTextWrap"><span class="feInfoText"></span><i class="fa fa-close feInfo feInfoClose"></i></div>
+									</div>
+								</div>
+        					`);	
+        				}
+        			})
+        		})
+        	},
 			eventListeners: function(t){
 				var clickCnt = 0;
 				// Flood frequency, HUC, and Management Action clicks
@@ -25,7 +105,7 @@ function ( declare, Query, QueryTask ) {
 					// Update range slider min and max values 
 					var slen = $('#' + t.id + 'mng-act-wrap .slider').length;
 					t.ord = ""
-					$("#" + t.id + "CPI-head").show();
+					$("h4").show();
 					$.each($('#' + t.id + 'mng-act-wrap .slider'),function(i,v){
 						if (slen == i + 1){
 							t.ord = "last";
@@ -52,9 +132,15 @@ function ( declare, Query, QueryTask ) {
 									$("#" + v.id).parent().parent().parent().parent().hide();
 									var options = $("#" + v.id).slider( 'option' );
 									$("#" + v.id).slider( 'option', 'values', [ options.min, options.max ] );
-									if (v1 == "CPI"){
-										$("#" + t.id + "CPI-head").hide();
-									}
+									// hide the header above if the filter group is not visible and has no siblings
+									$.each(t.filterObj,function(k,v3){
+										$.each(v3.controls,function(k1,v4){
+											if (v4.field == v1 && v4.single){
+												$(`h4:contains('${v3.header}')`).hide();
+												return false;
+											}
+										})
+									})
 								}	
 							}
 						})
@@ -69,8 +155,8 @@ function ( declare, Query, QueryTask ) {
 						}else{
 							$(v).parent().parent().parent().parent().hide()
 							$(v).prop("disabled", true)
-							if ( $("#" + t.id + t.radioObj[t.fe][ben].cbid).prop("checked") ){
-								$("#" + t.id + t.radioObj[t.fe][ben].cbid).trigger("click")
+							if ( $("#" + t.id + t.radioObj[t.fe][ben].cbid ).prop("checked") ){
+								$("#" + t.id + t.radioObj[t.fe][ben].cbid ).trigger("click")
 							}
 						}
 					});	
@@ -119,7 +205,7 @@ function ( declare, Query, QueryTask ) {
 						var sl = $('#' + c.target.id).parent().parent().parent().find('.slider')[0].id 
 						$('#' + sl).slider( "option", "disabled", true );
 						var ben  = sl.split("-").pop();
-						t[ben] = "";
+						t.exp[ben] = "";
 						t.clicks.layerDefs(t);
 					}	
 					t.clicks.cbChecker(t);	
@@ -136,7 +222,7 @@ function ( declare, Query, QueryTask ) {
 					}
 					if (c.target.checked == false){
 						var ben = $('#' + c.target.id).parent().parent().next().find('input')[0].name;
-						t[ben] = "";
+						t.exp[ben] = "";
 						t.clicks.layerDefs(t);
 						$.each($('#' + c.target.id).parent().parent().next().find('input'),function(i,v){
 							$(v).attr('disabled', true)		
@@ -152,9 +238,9 @@ function ( declare, Query, QueryTask ) {
 						field = ben;
 					}
 					var val = c.target.value;
-					t[ben] = "( " + field + " = " + val + " )";
+					t.exp[ben] = "( " + field + " = " + val + " )";
 					if (val == 1 && ben == "TNC"){
-						t[ben] = "( " + field + " > 0 )";
+						t.exp[ben] = "( " + field + " > 0 )";
 					}
 					t.clicks.layerDefs(t);
 				})
@@ -247,8 +333,10 @@ function ( declare, Query, QueryTask ) {
 				})
 				if (n == 0){
 					$(`#${t.id}saveAndShare`).hide();
+					$(`#${t.id}resetFilters`).hide();
 				}else{
 					$(`#${t.id}saveAndShare`).show();
+					$(`#${t.id}resetFilters`).show();
 				}
 			},
 			sliderChange: function(e, ui, t){
@@ -274,9 +362,9 @@ function ( declare, Query, QueryTask ) {
 						v1 = v1/t.sliderObj[t.fe][ben].div
 					}
 					if (v1 == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
-						t[ben] = "(" + field + " >= " + v0 + ")";	
+						t.exp[ben] = "(" + field + " >= " + v0 + ")";	
 					}else{
-						t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+						t.exp[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
 					}
 					t.clicks.layerDefs(t);
 				}
@@ -285,7 +373,7 @@ function ( declare, Query, QueryTask ) {
 					var dis = $('#' + e.target.id).slider("option", "disabled");
 					var vis = $('#' + e.target.id).is(":visible")
 					if (dis === true){
-						t[ben] = "";	
+						t.exp[ben] = "";	
 					}else{
 						if (vis){
 							var v0 = ui.values[0]
@@ -296,12 +384,12 @@ function ( declare, Query, QueryTask ) {
 								v1 = v1/t.sliderObj[t.fe][ben].div
 							}
 							if (v1 == t.sliderObj[t.fe][ben].max && t.sliderObj[t.fe][ben].gtmax){
-								t[ben] = "(" + field + " >= " + v0 + ")";	
+								t.exp[ben] = "(" + field + " >= " + v0 + ")";	
 							}else{
-								t[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
+								t.exp[ben] = "(" + field + " >= " + v0 + " AND " + field + " <= " + v1 + ")";	
 							}
 						}else{
-							t[ben] = "";
+							t.exp[ben] = "";
 						}
 					}
 					t.clicks.sliderSlide(e, ui, t);
@@ -331,7 +419,7 @@ function ( declare, Query, QueryTask ) {
 			},
 			layerDefs: function(t){
 				if (t.obj.stateSet == "no"){
-					t.obj.exp = [t.KM2, t.ACCp, t.DINp, t.GDDs, t.CPI, t.inIBA, t.TNC, t.WT_TOT, t.FWScrit, t.ABCcorr, t.cumu_hci, t.popnow, t.pop2050, t.P2_2050, t.P5_2050]
+					t.obj.exp = t.exp
 				}
 				var exp = "OBJECTID > 0";
 				var cnt = 0;
@@ -342,7 +430,7 @@ function ( declare, Query, QueryTask ) {
 				});	
 				if (cnt > 0){
 					exp = "";
-					t.obj.exp.unshift(t.obj.ffDef);
+					//t.obj.exp.unshift(t.obj.ffDef);
 					$.each(t.obj.exp, function(i, v){
 						if (v.length > 0){
 							if (exp.length == 0){

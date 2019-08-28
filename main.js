@@ -5,7 +5,7 @@ require({
 // Bring in dojo and javascript api classes as well as varObject.json, js files, and content.html
 define([
 	"dojo/_base/declare", "framework/PluginBase", "dijit/layout/ContentPane", "dojo/dom", "dojo/dom-style", "dojo/dom-geometry", "dojo/text!./obj.json", 
-	"dojo/text!./html/content.html", "dojo/text!./html/popup.html", './js/esriapi', './js/clicks', './js/variables', 'dojo/_base/lang'	
+	"dojo/text!./html/content.html", "dojo/text!./html/popup.html", './js/esriapi', './js/clicks', './variables', 'dojo/_base/lang'	
 ],
 function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, content, popup, esriapi, clicks, variables, lang ) {
 	return declare(PluginBase, {
@@ -19,7 +19,6 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			declare.safeMixin(this, frameworkParameters);
 			// Define object to access global variables from JSON object. Only add variables to varObject.json that are needed by Save and Share. 
 			this.obj = dojo.eval("[" + obj + "]")[0];	
-			this.url = "https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/FloodplainExplorer/MapServer";
 			this.layerDefs = [];
 			$("#sidebar-help-area").css("display","none");
 		},
@@ -94,7 +93,6 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 				this.obj.stateSet = "yes";	
 				var state = new Object();
 				state = this.obj;
-				console.log(this.obj)
 				return state;	
 			}
 		},
@@ -133,11 +131,14 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			$('#' + this.descID).html(popup);
 			// Set up variables
 			this.variables.makeVariables(this);
+			// Build elements
+			this.clicks.buildElements(this);
 			// Click listeners
 			this.clicks.eventListeners(this);
+			// Call custom app modificaiton function
+			this.variables.modifications(this);
 			// Create ESRI objects and event listeners	
 			this.esriapi.esriApiFunctions(this);
-			
 			this.rendered = true;	
 		}
 	});
