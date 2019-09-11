@@ -121,7 +121,6 @@ function ( declare, Query, QueryTask ) {
 									$("#" + v.id).slider( "option", "min", min );
 									$("#" + v.id).slider( "option", "max", max );
 									if (t.sliderObj[t.fe][v1].step){
-										console.log("found Step for " + v1)
 										var step = t.sliderObj[t.fe][v1].step;
 										$("#" + v.id).slider( "option", "step", step );
 									}
