@@ -124,7 +124,7 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			var idUpdate = idUpdate0.replace(/id="/g, 'id="' + this.id);
 			$('#' + this.id).html(idUpdate);
 			// Add popup window for descriptions
-			this.descDiv = new ContentPane({style:'display:none; padding:10px; color:#000; opacity: 1; z-index:1000; border:1pt solid #777; position:absolute; top:5px; left:6px; max-width:450px; border-radius:5px; box-shadow:2px 2px 2px 1px rgba(16,22,26,.5); background:#f9f9f9;'});
+			this.descDiv = new ContentPane({style:'display:none; padding:10px 5px 5px 5px; color:#000; opacity: 1; z-index:1000; border:1pt solid #777; position:absolute; top:5px; left:6px; max-width:500px; border-radius:5px; box-shadow:2px 2px 2px 1px rgba(16,22,26,.5); background:#f9f9f9;'});
 			this.descID = this.descDiv.id;
 			var dId = this.descID;
 			dom.byId('map-0').appendChild(this.descDiv.domNode);
