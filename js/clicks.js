@@ -511,6 +511,15 @@ function ( declare, Query, QueryTask ) {
 			        return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
 			     }
 			     return num;
+			},
+			abbreviateNumberPopup: function(num) {
+			    if (num >= 1000000000) {
+			        return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + ' billion';
+			     }
+			     if (num >= 1000000) {
+			        return (num / 1000000).toFixed(1).replace(/\.0$/, '') + ' million';
+			     }
+			     return num;
 			}
         });
     }
