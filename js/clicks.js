@@ -84,6 +84,25 @@ function ( declare, Query, QueryTask ) {
         				}
         			})
         		})
+
+        		// create supporting layer controls from object
+        		if ( t.supportingLayersObj.visible ){
+	        		let slnum = 0;
+	        		$.each(t.supportingLayersObj.controls,function(k,v){
+	 					slnum = slnum + 1;
+	 					$(`#${t.id}supporting-layers`).append(`
+	 						<div class="flex1">
+								<label class="form-component" for="${t.id}sl${slnum}">
+									<input type="checkbox" class="slcb" id="${t.id}sl${slnum}" name="sl${slnum}" value="${v.value}"><span class="check"></span>
+									<span class="form-text under">${v.label}</span>
+								</label>
+							</div>
+	 					`);			
+	        		})	
+	        		$(`#${t.id}supporting-layers`).show();
+	        	}else{
+	        		$(`#${t.id}supporting-layers`).hide();
+	        	}	
         	},
 			eventListeners: function(t){
 				var clickCnt = 0;
@@ -189,7 +208,12 @@ function ( declare, Query, QueryTask ) {
 						}
 					});
 					// Update watershed visibilty
-					t.obj.visibleLayers = [];
+					for (var i = 0; i < 3; i++){
+						let index = t.obj.visibleLayers.indexOf(i.toString());
+						if (index > -1){
+							t.obj.visibleLayers.splice(index,1);
+						}
+					}
 					t.obj.visibleLayers.push(t.obj.hucLayer)
 					t.dynamicLayer.setVisibleLayers(t.obj.visibleLayers);
 				})
@@ -261,6 +285,19 @@ function ( declare, Query, QueryTask ) {
 					}
 					$(e).parent().hide();
 				});
+				// Checkboxes for supporting layers
+				$('#' + t.id + 'umr-wrap .slcb').on('click',function(c){
+					if ( c.currentTarget.checked ){
+						t.obj.supportingLayers.push(c.currentTarget.value);
+						t.supportingLayer.setVisibleLayers(t.obj.supportingLayers);
+					}else{
+						let index= t.obj.supportingLayers.indexOf(c.currentTarget.value);
+						if (index > -1){
+							t.obj.supportingLayers.splice(index,1)
+						}
+						t.supportingLayer.setVisibleLayers(t.obj.supportingLayers);
+					}
+				})
 				// Set up range slider
 				$('#' + t.id + 'mng-act-wrap .slider').slider({range:true, min:0, max:2400, values:[0,2400], disabled:true, 
 					change:function(event,ui){t.clicks.sliderChange(event,ui,t)},

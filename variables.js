@@ -197,7 +197,10 @@ function ( 	declare ) {
 						}
 					}
 				}
-
+				// object to build supporting layers
+				t.supportingLayersObj = {
+					visible:false
+				}	
 				// definition expression root field names
 				t.exp = {
 					KM2:"", ACCp:"", DINp:"", GDDs:"", CPI:"", inIBA:"", TNC:"", WT_TOT:"", FWScrit:"", ABCcorr:"", cumu_hci:"", popnow:"", pop2050:"", P2_2050:"", P5_2050:""
