@@ -361,6 +361,15 @@ function ( declare, Query, QueryTask ) {
 						}
 					});
 				})	
+				// override region basemap so that imagery shows the hybrid map
+				$(".pushy-link a").on('click',function(c){
+					if (c.currentTarget.innerHTML == "Imagery"){
+						t.map.setBasemap("hybrid")
+					}
+					if (c.currentTarget.innerHTML == "Topographic"){
+						t.map.setBasemap("topo")
+					}
+				})
 			},
 			cbChecker: function(t){
 				let n = 0;
