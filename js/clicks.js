@@ -87,6 +87,7 @@ function ( declare, Query, QueryTask ) {
 
         		// create supporting layer controls from object
         		if ( t.supportingLayersObj.visible ){
+	        		t.supLayersAdded = true;
 	        		let slnum = 0;
 	        		$.each(t.supportingLayersObj.controls,function(k,v){
 	 					slnum = slnum + 1;
@@ -101,6 +102,7 @@ function ( declare, Query, QueryTask ) {
 	        		})	
 	        		$(`#${t.id}supporting-layers`).show();
 	        	}else{
+	        		t.supLayersAdded = false;
 	        		$(`#${t.id}supporting-layers`).hide();
 	        	}	
         	},

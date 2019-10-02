@@ -55,9 +55,11 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 					}	
 				});	
 				// Add supporting layers map service
-				t.supportingLayer = new ArcGISDynamicMapServiceLayer(t.url, {opacity:0.3});
-				t.map.addLayer(t.supportingLayer);	
-				t.dynamicLayer.setVisibleLayers(t.obj.supportingLayers);
+				if ( t.supLayersAdded ){
+					t.supportingLayer = new ArcGISDynamicMapServiceLayer(t.url, {opacity:0.3});
+					t.map.addLayer(t.supportingLayer);	
+					t.dynamicLayer.setVisibleLayers(t.obj.supportingLayers);
+				}	
 				
 				t.sym1  = new SimpleLineSymbol(SimpleLineSymbol.STYLE_SOLID, new Color([88,116,215,1]), 2), new Color([88,116,215]);	
 				t.map.on("click",function(c){	
