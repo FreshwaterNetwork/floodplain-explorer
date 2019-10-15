@@ -73,10 +73,13 @@
 .feInfoWrap{
 	position:absolute; top:-5px; right:-4px;
 }
-.flexSlideWrap .fa-info-circle{
+.ffInfoWrap{
+	position:absolute; top:0px; right:7px;
+}
+.flexSlideWrap .fa-info-circle, .ffInfoWrap .fa-info-circle{
 	font-size:21px; color:#457545; cursor:pointer;
 }
-.flexSlideWrap .fa-close{
+.flexSlideWrap .fa-close, .ffInfoWrap .fa-close{
 	font-size:21px; color:#d64000; cursor:pointer;
 }
 .feInfoTextWrap .feInfoClose{
