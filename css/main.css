@@ -79,7 +79,7 @@
 .flexSlideWrap .fa-info-circle, .ffInfoWrap .fa-info-circle{
 	font-size:21px; color:#457545; cursor:pointer;
 }
-.flexSlideWrap .fa-close, .ffInfoWrap .fa-close{
+.flexSlideWrap .fa-close, .ffTestWrap .fa-close{
 	font-size:21px; color:#d64000; cursor:pointer;
 }
 .feInfoTextWrap .feInfoClose{
