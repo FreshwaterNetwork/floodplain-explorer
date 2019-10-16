@@ -10,7 +10,7 @@ define([
 function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, content, popup, esriapi, clicks, variables, lang ) {
 	return declare(PluginBase, {
 		// The height and width are set here when an infographic is defined. When the user click Continue it rebuilds the app window with whatever you put in.
-		toolbarName: "UMR Floodplain Explorer", showServiceLayersInLegend: true, allowIdentifyWhenActive: false, rendered: false, resizable: false,
+		toolbarName: "UMR Floodplain Explorer", showServiceLayersInLegend: false, allowIdentifyWhenActive: false, rendered: false, resizable: false,
 		hasCustomPrint: false, size:'custom', width:430, 
 		
 		// First function called when the user clicks the pluging icon. 
@@ -129,6 +129,45 @@ function ( 	declare, PluginBase, ContentPane, dom, domStyle, domGeom, obj, conte
 			var dId = this.descID;
 			dom.byId('map-0').appendChild(this.descDiv.domNode);
 			$('#' + this.descID).html(popup);
+			// add a basemap selector to map
+			$("#map-0").append(`
+				<div class="dropdown" style="position:absolute; top:20px; right:20px; z-index:1000;">
+					<button class="button dropdown-toggle" style="text-align:right;" type="button" id="bms" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						Topographic
+						<i class="icon-down-open-mini caret"></i>
+					</button>
+					<ul class="dropdown-menu" id="bmul" aria-labelledby="bms" style="min-width:unset; padding:6px; width:121px; right:0; left:unset;">
+						<li><a>Topographic</a></li>
+						<li><a>Imagery</a></li>
+					</ul>
+				</div>
+			`)
+			// hide exiting hamburger basemap selector so it isn't accidentally used
+			$('.basemap-selector').hide();
+			$('#show-single-plugin-mode-help').hide();
+			// click event on new basemap selector that triggers a click on hamburger basemap selector
+			$("#bmul").on("click",function(c){
+				let sel = c.target.innerHTML;
+				let pl = $('.basemap-selector').find($(".pushy-link a"))
+				$.each(pl,function(i,v){
+					let t = $(v).html()
+					if (t == sel){
+						$(v).parent().trigger('click')
+						$(v).trigger('click')
+						$(bms).html(sel + `<i class="icon-down-open-mini caret"></i>`)
+					}
+				})
+			})
+			// override hamburger basemap even handler to add imagery with labels
+			let tm = this.map
+			$(".pushy-link a").on('click',function(c){
+				if (c.currentTarget.innerHTML == "Imagery"){
+					tm.setBasemap("hybrid")
+				}
+				if (c.currentTarget.innerHTML == "Topographic"){
+					tm.setBasemap("topo")
+				}
+			})
 			// Set up variables
 			this.variables.makeVariables(this);
 			// Build elements
