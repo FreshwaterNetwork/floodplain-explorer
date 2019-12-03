@@ -80,7 +80,11 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 									commaVal = t.clicks.abbreviateNumberPopup(t.atts[v.id])
 								}
 								if (!isNaN(commaVal)){
-									commaVal = t.clicks.commaSeparateNumber(t.atts[v.id].toFixed(2))
+									if ( $(`#${v.id}`).hasClass("round") ){
+										commaVal = t.clicks.commaSeparateNumber(t.atts[v.id].toFixed(0))
+									}else{
+										commaVal = t.clicks.commaSeparateNumber(t.atts[v.id].toFixed(2))
+									}
 								}
 								$(v).val(commaVal)
 							})
