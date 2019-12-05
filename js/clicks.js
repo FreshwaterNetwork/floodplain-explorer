@@ -122,6 +122,11 @@ function ( declare, Query, QueryTask ) {
 						}
 					})
 					t.fe = t.ws + t.obj.mngmtAction + t.obj.floodFreq;
+					t.maFf = t.obj.mngmtAction + t.obj.floodFreq;
+					// check if second modification function exists
+					if (typeof t.variables.eventMods === 'function'){
+						t.variables.eventMods(t)
+					}
 					t.obj.hucLayer = t.obj.huc
 					// Update range slider min and max values 
 					var slen = $('#' + t.id + 'mng-act-wrap .slider').length;
