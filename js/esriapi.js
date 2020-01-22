@@ -119,6 +119,7 @@ function ( 	ArcGISDynamicMapServiceLayer, Extent, SpatialReference, Query, Query
 								});
 								$("#puTitle").html(response[0].layerName);
 								let className = response[0].layerName.replace(/\s/g, '');
+								className = className.replace('%', '');
 								$(".puLayerWrap").hide();
 								$(`.${className}`).show();
 								$(".popupLabel").hide();
